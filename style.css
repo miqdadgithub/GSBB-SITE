@@ -44,11 +44,12 @@ a {
     padding: 0 20px;
 }
 
-/* Header & Navigation */
+/* Header & Navigation - Made Sticky */
 header {
     background-color: var(--white);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-    position: fixed;
+    position: sticky;
+    top: 0;
     width: 100%;
     z-index: 1000;
     transition: var(--transition);
@@ -78,6 +79,7 @@ header {
 .nav-menu {
     display: flex;
     list-style: none;
+    align-items: center;
 }
 
 .nav-item {
@@ -109,6 +111,26 @@ header {
 
 .nav-link:hover::after {
     width: 100%;
+}
+
+.donate-btn {
+    background-color: var(--red);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: var(--transition);
+    margin-left: 20px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.donate-btn:hover {
+    background-color: transparent;
+    color: var(--red);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(225, 6, 0, 0.3);
 }
 
 .hamburger {
@@ -251,89 +273,254 @@ section.visible {
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Services & Market Section - Updated for vertical layout */
-.services-market {
+/* New To Donate Section */
+.to-donate {
     background-color: var(--light-gray);
+    padding: 100px 0;
 }
 
-.vertical-container {
-    display: flex;
-    flex-direction: column;
-    gap: 60px; /* Increased space between the two boxes */
-    max-width: 800px;
-    margin: 0 auto;
+.donation-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
 }
 
-.vertical-box {
+.donation-option {
     background-color: var(--white);
     border-radius: 12px;
-    padding: 50px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    padding: 40px;
     text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
     transition: var(--transition);
-    width: 100%;
 }
 
-.vertical-box:hover {
+.donation-option:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
-.vertical-box h3 {
+.donation-option i {
+    font-size: 3rem;
+    color: var(--red);
+    margin-bottom: 20px;
+}
+
+.donation-option h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--black);
+}
+
+.donation-option p {
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.donation-amounts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.amount-btn {
+    padding: 12px 20px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.amount-btn:hover, .amount-btn.active {
+    background-color: var(--red);
+    color: var(--white);
+    border-color: var(--red);
+}
+
+.custom-amount {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.custom-amount input {
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    width: 150px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
+
+/* New Our Projects Section */
+.our-projects {
+    background-color: var(--white);
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.project-img {
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-img img {
+    transform: scale(1.05);
+}
+
+.project-content {
+    padding: 25px;
+}
+
+.project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--black);
+}
+
+.project-desc {
+    color: var(--dark-gray);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.project-stats {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 20px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--red);
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+}
+
+/* Baladi Market Section - Updated */
+.baladi-market {
+    background-color: var(--light-gray);
+}
+
+.market-preview {
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    transition: var(--transition);
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    cursor: pointer;
+    position: relative;
+}
+
+.market-preview:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.market-preview h3 {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     margin-bottom: 25px;
     color: var(--black);
 }
 
-.vertical-box p {
+.market-preview p {
     margin-bottom: 30px;
     line-height: 1.7;
     font-size: 1.1rem;
 }
 
-.marketplace-preview {
-    background-color: #f9f9f9;
+.market-iframe-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 60%; /* Aspect ratio */
     border-radius: 10px;
-    padding: 25px;
     margin: 30px 0;
-    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.marketplace-preview:hover {
-    transform: scale(1.02);
+.market-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
-.market-items {
+.market-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.03);
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.market-item {
-    width: 130px;
-    height: 130px;
-    background-color: var(--white);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
-    transition: var(--transition);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.market-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+.market-overlay-text {
+    background: var(--red);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
 }
 
-.market-item i {
-    font-size: 2.2rem;
-    color: var(--red);
-    margin-bottom: 12px;
+.market-preview:hover .market-overlay {
+    opacity: 1;
 }
 
 /* Join Us Section */
@@ -459,7 +646,7 @@ textarea.form-control {
     margin-right: 15px;
 }
 
-/* Footer */
+/* Improved Footer */
 footer {
     background-color: var(--black);
     color: var(--white);
@@ -508,6 +695,7 @@ footer {
 
 .footer-links li:hover {
     transform: translateX(5px);
+    color: var(--red);
 }
 
 .footer-links a {
@@ -517,6 +705,42 @@ footer {
 
 .footer-links a:hover {
     color: var(--red);
+}
+
+.footer-newsletter {
+    margin-top: 20px;
+}
+
+.footer-newsletter p {
+    margin-bottom: 15px;
+    color: #ccc;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+}
+
+.newsletter-btn {
+    background-color: var(--red);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.newsletter-btn:hover {
+    background-color: #c10500;
 }
 
 .copyright {
@@ -599,6 +823,11 @@ footer {
     .hero-title {
         font-size: 2.8rem;
     }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -621,17 +850,18 @@ footer {
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 0;
+        top: 70px;
         gap: 0;
         flex-direction: column;
         background-color: var(--white);
-        width: 70%;
-        height: 100vh;
-        text-align: left;
+        width: 100%;
+        height: calc(100vh - 70px);
+        text-align: center;
         transition: 0.5s;
         box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-        padding: 100px 30px 30px;
+        padding: 50px 30px 30px;
         z-index: 999;
+        overflow-y: auto;
     }
 
     .nav-menu.active {
@@ -641,6 +871,13 @@ footer {
     .nav-item {
         margin: 18px 0;
         font-size: 1.2rem;
+    }
+
+    .donate-btn {
+        margin-left: 0;
+        margin-top: 15px;
+        display: inline-block;
+        width: auto;
     }
 
     .hero-title {
@@ -655,13 +892,20 @@ footer {
         font-size: 2.2rem;
     }
     
-    .vertical-box {
+    .market-preview {
         padding: 30px 20px;
     }
-    
-    .market-item {
-        width: 110px;
-        height: 110px;
+
+    .project-card {
+        margin-bottom: 20px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .donation-options {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -679,11 +923,29 @@ footer {
         font-size: 14px;
     }
     
-    .vertical-box {
+    .market-preview {
         padding: 25px 15px;
     }
     
-    .vertical-box h3 {
+    .market-preview h3 {
         font-size: 1.6rem;
+    }
+
+    .donation-option {
+        padding: 25px 15px;
+    }
+
+    .donation-amounts {
+        gap: 10px;
+    }
+
+    .amount-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .market-overlay-text {
+        padding: 8px 16px;
+        font-size: 14px;
     }
 }

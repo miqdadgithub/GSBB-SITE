@@ -96,6 +96,18 @@ sections.forEach(section => {
     observer.observe(section);
 });
 
+// Donation amount buttons
+document.querySelectorAll('.amount-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        // Remove active class from all buttons in the same container
+        this.parentElement.querySelectorAll('.amount-btn').forEach(b => {
+            b.classList.remove('active');
+        });
+        // Add active class to clicked button
+        this.classList.add('active');
+    });
+});
+
 // Header scroll effect
 window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
