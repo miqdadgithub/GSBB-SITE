@@ -1,19 +1,45 @@
+/* =================================================================
+   TABLE OF CONTENTS
+   1.  :ROOT & GLOBAL STYLES
+   2.  HEADER & NAVIGATION
+   3.  HERO SECTION
+   4.  GENERAL SECTION STYLING
+   5.  ABOUT SECTION
+   6.  DONATE SECTION
+   7.  OUR PROJECTS SECTION
+   8.  BALADI MARKET SECTION
+   9.  JOIN US / CONTACT SECTION
+   10. FOOTER
+   11. MODAL STYLING
+   12. ANIMATIONS
+   13. RESPONSIVE DESIGN
+================================================================= */
+
+/* =================================================================
+   1. :ROOT & GLOBAL STYLES
+================================================================= */
 :root {
+    /* Color Palette */
     --red: #E10600;
     --black: #000000;
     --white: #FFFFFF;
     --light-gray: #f8f8f8;
     --dark-gray: #333333;
     --gold: #D4AF37;
-    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* Logo Specific Colors */
     --logo-g: #373C28;
     --logo-watermelon: #CE737C;
     --logo-rind: #75AF4B;
     --logo-students: #3F8100;
     --logo-underline: #2F2F2F;
     --logo-tagline: #DB3F4A;
+
+    /* Transitions */
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
@@ -44,11 +70,13 @@ a {
     padding: 0 20px;
 }
 
-/* Header & Navigation - Made Sticky */
+/* =================================================================
+   2. HEADER & NAVIGATION
+================================================================= */
 header {
     background-color: var(--white);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-    position: sticky;
+    position: sticky; /* Makes the header stick to the top on scroll */
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -69,7 +97,6 @@ header {
     gap: 18px;
 }
 
-/* SVG LOGO: GAZA STUDENTS with watermelon slice as A */
 .logo svg {
     display: block;
     max-width: 100%;
@@ -98,6 +125,7 @@ header {
     color: var(--red);
 }
 
+/* Underline effect on hover */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -133,6 +161,7 @@ header {
     box-shadow: 0 5px 15px rgba(225, 6, 0, 0.3);
 }
 
+/* Hamburger menu for mobile */
 .hamburger {
     display: none;
     cursor: pointer;
@@ -148,7 +177,9 @@ header {
     transition: all 0.3s;
 }
 
-/* Hero Section */
+/* =================================================================
+   3. HERO SECTION
+================================================================= */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('https://upload.wikimedia.org/wikipedia/commons/8/8c/Anti-Israel_Pro-Palestine_protest_%2853588603698%29.jpg') no-repeat center center/cover;
     height: 100vh;
@@ -183,6 +214,7 @@ header {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+/* General Button Styles */
 .btn {
     display: inline-block;
     padding: 14px 32px;
@@ -209,14 +241,17 @@ header {
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Section Styling */
+/* =================================================================
+   4. GENERAL SECTION STYLING
+================================================================= */
 section {
     padding: 100px 0;
-    opacity: 0;
-    transform: translateY(50px);
+    opacity: 0; /* Initially hidden for scroll animation */
+    transform: translateY(50px); /* Initially moved down for scroll animation */
     transition: opacity 1s ease, transform 1s ease;
 }
 
+/* Class added by JS when section is in view */
 section.visible {
     opacity: 1;
     transform: translateY(0);
@@ -243,7 +278,9 @@ section.visible {
     margin: 0 auto;
 }
 
-/* About Section */
+/* =================================================================
+   5. ABOUT SECTION
+================================================================= */
 .about {
     background-color: var(--white);
 }
@@ -273,7 +310,9 @@ section.visible {
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* New To Donate Section */
+/* =================================================================
+   6. DONATE SECTION
+================================================================= */
 .to-donate {
     background-color: var(--light-gray);
     padding: 100px 0;
@@ -357,7 +396,9 @@ section.visible {
     font-size: 16px;
 }
 
-/* New Our Projects Section */
+/* =================================================================
+   7. OUR PROJECTS SECTION
+================================================================= */
 .our-projects {
     background-color: var(--white);
 }
@@ -439,7 +480,9 @@ section.visible {
     color: var(--dark-gray);
 }
 
-/* Baladi Market Section - Updated */
+/* =================================================================
+   8. BALADI MARKET SECTION
+================================================================= */
 .baladi-market {
     background-color: var(--light-gray);
 }
@@ -480,7 +523,7 @@ section.visible {
     position: relative;
     overflow: hidden;
     width: 100%;
-    padding-top: 60%; /* Aspect ratio */
+    padding-top: 60%; /* Maintains aspect ratio */
     border-radius: 10px;
     margin: 30px 0;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -497,6 +540,7 @@ section.visible {
     border: none;
 }
 
+/* Overlay shown on hover over the iframe */
 .market-overlay {
     position: absolute;
     top: 0;
@@ -523,7 +567,9 @@ section.visible {
     opacity: 1;
 }
 
-/* Join Us Section */
+/* =================================================================
+   9. JOIN US / CONTACT SECTION
+================================================================= */
 .join-us {
     background: linear-gradient(to right, var(--white) 50%, var(--light-gray) 50%);
 }
@@ -646,7 +692,9 @@ textarea.form-control {
     margin-right: 15px;
 }
 
-/* Improved Footer */
+/* =================================================================
+   10. FOOTER
+================================================================= */
 footer {
     background-color: var(--black);
     color: var(--white);
@@ -707,42 +755,6 @@ footer {
     color: var(--red);
 }
 
-.footer-newsletter {
-    margin-top: 20px;
-}
-
-.footer-newsletter p {
-    margin-bottom: 15px;
-    color: #ccc;
-}
-
-.newsletter-form {
-    display: flex;
-    gap: 10px;
-}
-
-.newsletter-input {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    font-family: 'Inter', sans-serif;
-}
-
-.newsletter-btn {
-    background-color: var(--red);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.newsletter-btn:hover {
-    background-color: #c10500;
-}
-
 .copyright {
     text-align: center;
     padding-top: 30px;
@@ -751,9 +763,11 @@ footer {
     color: #ccc;
 }
 
-/* Modal Styling */
+/* =================================================================
+   11. MODAL STYLING
+================================================================= */
 .modal {
-    display: none;
+    display: none; /* Hidden by default */
     position: fixed;
     top: 0;
     left: 0;
@@ -767,6 +781,7 @@ footer {
     transition: opacity 0.5s ease;
 }
 
+/* Class added by JS to show modal */
 .modal.show {
     opacity: 1;
 }
@@ -795,7 +810,7 @@ footer {
     font-size: 1.8rem;
     cursor: pointer;
     color: var(--dark-gray);
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s;
 }
 
 .close-modal:hover {
@@ -803,13 +818,18 @@ footer {
     transform: rotate(90deg);
 }
 
-/* Animations */
+/* =================================================================
+   12. ANIMATIONS
+================================================================= */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive Design */
+/* =================================================================
+   13. RESPONSIVE DESIGN
+================================================================= */
+/* Tablet and smaller desktops */
 @media (max-width: 992px) {
     .join-us {
         background: var(--white);
@@ -830,23 +850,19 @@ footer {
     }
 }
 
+/* Mobile devices */
 @media (max-width: 768px) {
+    /* Hamburger menu becomes visible */
     .hamburger {
-        display: block;
+        display: var(--white);
     }
 
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
+    /* Hamburger animation to 'X' */
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
+    /* Mobile navigation menu styles */
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -880,72 +896,23 @@ footer {
         width: auto;
     }
 
-    .hero-title {
-        font-size: 2.2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-
-    .section-title h2 {
-        font-size: 2.2rem;
-    }
-    
-    .market-preview {
-        padding: 30px 20px;
-    }
-
-    .project-card {
-        margin-bottom: 20px;
-    }
-
-    .newsletter-form {
-        flex-direction: column;
-    }
-
-    .donation-options {
-        grid-template-columns: 1fr;
-    }
+    .hero-title { font-size: 2.2rem; }
+    .hero-subtitle { font-size: 1.1rem; }
+    .section-title h2 { font-size: 2.2rem; }
+    .market-preview { padding: 30px 20px; }
+    .project-card { margin-bottom: 20px; }
+    .donation-options { grid-template-columns: 1fr; }
 }
 
+/* Small mobile devices */
 @media (max-width: 480px) {
-    .hero-title {
-        font-size: 1.8rem;
-    }
-    
-    .section-title h2 {
-        font-size: 1.8rem;
-    }
-    
-    .btn {
-        padding: 12px 25px;
-        font-size: 14px;
-    }
-    
-    .market-preview {
-        padding: 25px 15px;
-    }
-    
-    .market-preview h3 {
-        font-size: 1.6rem;
-    }
-
-    .donation-option {
-        padding: 25px 15px;
-    }
-
-    .donation-amounts {
-        gap: 10px;
-    }
-
-    .amount-btn {
-        padding: 10px 15px;
-        font-size: 14px;
-    }
-    
-    .market-overlay-text {
-        padding: 8px 16px;
-        font-size: 14px;
-    }
+    .hero-title { font-size: 1.8rem; }
+    .section-title h2 { font-size: 1.8rem; }
+    .btn { padding: 12px 25px; font-size: 14px; }
+    .market-preview { padding: 25px 15px; }
+    .market-preview h3 { font-size: 1.6rem; }
+    .donation-option { padding: 25px 15px; }
+    .donation-amounts { gap: 10px; }
+    .amount-btn { padding: 10px 15px; font-size: 14px; }
+    .market-overlay-text { padding: 8px 16px; font-size: 14px; }
 }
