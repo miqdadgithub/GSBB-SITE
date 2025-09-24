@@ -115,9 +115,15 @@ nav a {
     width: 48px;
     height: 48px;
     border-radius: 10px;
+    /* Add flex properties to stack and space the bars */
+    flex-direction: column;
+    gap: 5px;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    /* Ensure it's above other elements */
+    position: relative;
+    z-index: 100;
 }
 
 .hamburger .bar {
@@ -127,6 +133,19 @@ nav a {
     background: var(--text);
     border-radius: 2px;
     transition: transform var(--duration), opacity var(--duration);
+}
+
+/* Hamburger animation to 'X' when active */
+.hamburger.is-active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.is-active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Mobile Nav */
@@ -690,6 +709,10 @@ footer {
 
     .hamburger {
         display: flex;
+    }
+
+    .logo {
+        max-width: calc(100% - 60px); /* Ensure space for hamburger */
     }
 
     .logo svg {
