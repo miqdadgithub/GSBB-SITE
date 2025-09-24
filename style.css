@@ -152,7 +152,7 @@ nav a {
 .mobile-nav {
     position: fixed;
     inset: 0;
-    background: rgba(255, 255, 255, 0.98);
+    background: var(--bg); /* Changed from transparent to solid */
     z-index: 80;
     transform: translateX(100%);
     transition: transform var(--duration);
@@ -422,6 +422,7 @@ section {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
+    justify-content: center; /* Center buttons container */
 }
 
 .market-contact {
@@ -734,6 +735,16 @@ footer {
     .container {
         padding: 0 14px;
     }
+
+    /* Center paragraphs on mobile */
+    section p, .about .lead {
+        text-align: center;
+    }
+
+    /* Keep form/contact text left-aligned */
+    .vol-form p, .vol-side p, .contact-note, .contact-text, .footer-left p {
+        text-align: left;
+    }
 }
 
 @media (max-width: 420px) {
@@ -753,6 +764,10 @@ footer {
 
     .footer-inner {
         flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-inner p {
         text-align: center;
     }
 
