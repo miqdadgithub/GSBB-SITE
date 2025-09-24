@@ -1,364 +1,393 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <!-- Meta tags for character set and responsive design -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Add color-scheme meta tag to suggest a light theme -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="color-scheme" content="light">
     <title>Gaza Students Beyond Borders 🍉</title>
-
-    <!-- Favicon using an SVG data URI for the watermelon emoji -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍉</text></svg>">
-
-    <!-- Google Fonts for website typography -->
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%89%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Baladi+Sans:wght@400;700&family=Baladi+Serif:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@400;600;700&family=Baladi+Sans:wght@400;700&family=Baladi+Serif:wght@400;700&display=swap"
         rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Main stylesheet -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Google tag (gtag.js) for analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSDMKTXLTG"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-VSDMKTXLTG');
-    </script>
+    <meta name="description"
+        content="Support Gaza students to continue their education: scholarships, housing, volunteering and the Baladi Market." />
 </head>
 
 <body>
-    <!-- =================================================================
-    HEADER & NAVIGATION
-    ================================================================== -->
     <header>
-        <div class="header-container container">
-            <!-- Logo Section -->
-            <div class="logo" style="gap: 18px;">
-                <!-- SVG LOGO: GAZA STUDENTS with watermelon slice -->
-                <span
-                    aria-label="Gaza Students Beyond Borders logo: the word 'GAZA' where the first A is a watermelon slice, followed by 'STUDENTS' in green; tagline 'BEYOND BORDERS' in red beneath.">
-                    <svg viewBox="0 0 600 180" width="340" height="100"
-                        style="display:block;max-width:100%;height:auto;" aria-labelledby="logoTitle logoDesc"
-                        role="img">
-                        <title id="logoTitle">Gaza Students Beyond Borders logo</title>
-                        <desc id="logoDesc">Horizontal logo with G in olive, watermelon slice as first A, Z in dark, normal A, STUDENTS in green, and tagline in red.</desc>
-                        <!-- Inline styles for SVG text elements -->
-                        <defs>
-                            <style>
-                                .g, .z, .a { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 72px; fill: #373C28; }
-                                .students { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 48px; fill: #3F8100; }
-                                .tagline { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 20px; fill: #DB3F4A; letter-spacing: 0.14em; }
-                            </style>
-                        </defs>
-                        <!-- Logo Text & Shapes -->
-                        <text x="0" y="78" class="g">G</text>
-                        <g id="watermelon_icon" transform="translate(80,10)">
-                            <polygon points="0,60 36,0 72,60" fill="#CE737C" stroke="#1E1E1E" stroke-width="3" />
-                            <polyline points="8,54 36,12 64,54" fill="none" stroke="#F3FDD8" stroke-width="5" />
-                            <polyline points="0,60 36,0 72,60" fill="none" stroke="#75AF4B" stroke-width="6" />
-                            <ellipse cx="24" cy="38" rx="3" ry="6" fill="#1E1E1E" />
-                            <ellipse cx="36" cy="32" rx="2.5" ry="5" fill="#1E1E1E" />
-                            <ellipse cx="48" cy="38" rx="3" ry="6" fill="#1E1E1E" />
-                            <ellipse cx="30" cy="48" rx="2" ry="4" fill="#1E1E1E" />
-                            <ellipse cx="42" cy="48" rx="2" ry="4" fill="#1E1E1E" />
-                            <path d="M20,30 Q36,10 52,30" stroke="#fff" stroke-width="2" fill="none" opacity="0.4" />
-                        </g>
-                        <text x="170" y="78" class="z">Z</text>
-                        <text x="240" y="78" class="a">A</text>
-                        <text x="340" y="78" class="students">STUDENTS</text>
-                        <path id="underline" d="M340 90 Q440 100 560 90" stroke="#2F2F2F" stroke-width="3" fill="none" stroke-linecap="round" />
-                        <text x="450" y="120" class="tagline" text-anchor="middle">BEYOND BORDERS</text>
-                    </svg>
-                </span>
+        <div class="container header-inner">
+            <div class="logo">
+                <svg viewBox="0 0 600 140" xmlns="http://www.w3.org/2000/svg" role="img"
+                    aria-label="Gaza Students logo">
+                    <circle cx="34" cy="34" r="28" fill="#E10600" /><text x="74" y="44"
+                        font-family="Playfair Display, serif" font-size="28" fill="#111" font-weight="700">Gaza
+                        Students</text>
+                </svg>
+                <div class="brand-title">Beyond Borders</div>
             </div>
-            <!-- Main Navigation Menu -->
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
-                <li class="nav-item"><a href="#our-projects" class="nav-link">Our Projects</a></li>
-                <li class="nav-item"><a href="#baladi-market" class="nav-link">Baladi Market</a></li>
-                <li class="nav-item"><a href="#join-us" class="nav-link">Join Us</a></li>
-                <li class="nav-item"><a href="#to-donate" class="donate-btn">Donate Now</a></li>
+
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#our-projects">Projects</a></li>
+                    <li><a href="#baladi-market">Baladi Market</a></li>
+                    <li><a href="#join-us">Volunteer</a></li>
+                    <li><a class="cta" href="#to-donate">Donate</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="mobileNav"
+                aria-label="Open menu">
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true" style="margin-top:6px"></span>
+            </button>
+        </div>
+
+        <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#our-projects">Projects</a></li>
+                <li><a href="#baladi-market">Baladi Market</a></li>
+                <li><a href="#join-us">Volunteer</a></li>
+                <li><a class="cta" href="#to-donate">Donate</a></li>
             </ul>
-            <!-- Hamburger Menu for Mobile -->
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
         </div>
     </header>
 
-    <!-- =================================================================
-    HERO SECTION
-    ================================================================== -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Empowering Gaza Students to Continue Their Educational Journey</h1>
-            <p class="hero-subtitle">We provide support, resources, and opportunities for students from Gaza to pursue education worldwide</p>
-            <a href="#to-donate" class="btn btn-primary">Support Our Cause</a>
-        </div>
-    </section>
-
-    <!-- =================================================================
-    ABOUT SECTION
-    ================================================================== -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Us</h2>
-                <div class="title-underline"></div>
-            </div>
-            <div class="about-content">
-                <p class="about-text">Gaza Students Beyond Borders is a nonprofit initiative dedicated to supporting students from Gaza in their pursuit of education and professional opportunities worldwide. We provide resources, networking platforms, and financial assistance to help overcome barriers to education.</p>
-                <button class="btn btn-secondary" onclick="openModal('aboutModal')">Read More</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- =================================================================
-    DONATE SECTION
-    ================================================================== -->
-    <section id="to-donate" class="to-donate">
-        <div class="container">
-            <div class="section-title">
-                <h2>To Donate</h2>
-                <div class="title-underline"></div>
-            </div>
-            <div class="donation-options">
-                <!-- One-Time Donation Option -->
-                <div class="donation-option">
-                    <i class="fas fa-hand-holding-usd"></i>
-                    <h3>One-Time Donation</h3>
-                    <p>Make a single donation to support our students' educational journeys</p>
-                    <div class="donation-amounts">
-                        <button class="amount-btn">$25</button>
-                        <button class="amount-btn">$50</button>
-                        <button class="amount-btn">$100</button>
-                        <button class="amount-btn">$250</button>
-                    </div>
-                    <div class="custom-amount">
-                        <input type="text" placeholder="Custom Amount">
-                    </div>
-                    <button class="btn btn-primary">Donate Now</button>
-                </div>
-                <!-- Monthly Donation Option -->
-                <div class="donation-option">
-                    <i class="fas fa-calendar-check"></i>
-                    <h3>Monthly Support</h3>
-                    <p>Become a sustaining donor with automatic monthly contributions</p>
-                    <div class="donation-amounts">
-                        <button class="amount-btn">$10</button>
-                        <button class="amount-btn">$25</button>
-                        <button class="amount-btn">$50</button>
-                        <button class="amount-btn">$100</button>
-                    </div>
-                    <div class="custom-amount">
-                        <input type="text" placeholder="Custom Amount">
-                    </div>
-                    <button class="btn btn-primary">Subscribe Monthly</button>
-                </div>
-                <!-- Sponsor a Student Option -->
-                <div class="donation-option">
-                    <i class="fas fa-gift"></i>
-                    <h3>Sponsor a Student</h3>
-                    <p>Fully fund a student's educational expenses for an entire semester</p>
-                    <div class="donation-amounts">
-                        <button class="amount-btn">$500</button>
-                        <button class="amount-btn">$1000</button>
-                        <button class="amount-btn">$2500</button>
-                    </div>
-                    <p class="small-text">*Covers tuition, books, and living expenses</p>
-                    <button class="btn btn-primary">Sponsor Now</button>
+    <main>
+        <section class="hero" role="banner">
+            <div class="hero-inner container">
+                <h1 class="hero-title">Empowering Gaza students to continue their educational journey</h1>
+                <p class="hero-lead">We provide scholarships, housing, mentorship and safe pathways for students from
+                    Gaza to study abroad and rebuild their futures.</p>
+                <div class="hero-buttons">
+                    <a class="btn btn-primary" href="#to-donate">Support Our Cause</a>
+                    <a class="btn btn-ghost" href="#join-us">Volunteer</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- =================================================================
-    OUR PROJECTS SECTION
-    ================================================================== -->
-    <section id="our-projects" class="our-projects">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Projects</h2>
-                <div class="title-underline"></div>
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About Us</h2>
+                    <div class="underline"></div>
+                </div>
+                <p class="lead">Gaza Students Beyond Borders is a nonprofit initiative dedicated to supporting students
+                    from Gaza in their pursuit of education and professional opportunities worldwide. We provide
+                    resources, networking platforms, and financial assistance to help overcome barriers to education.
+                </p>
             </div>
-            <div class="projects-container">
-                <!-- Project Card 1 -->
-                <div class="project-card">
-                    <div class="project-img"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Student Evacuation Program"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Student Evacuation Program</h3>
-                        <p class="project-desc">Helping Palestinian students secure fully funded university places abroad and navigate visa requirements amidst the ongoing crisis in Gaza.</p>
-                        <div class="project-stats">
-                            <div class="stat"><span class="stat-number">80+</span><span class="stat-label">Students Helped</span></div>
-                            <div class="stat"><span class="stat-number">15</span><span class="stat-label">Countries</span></div>
+        </section>
+
+        <section id="to-donate" class="to-donate">
+            <div class="container">
+                <div class="section-title">
+                    <h2>To Donate</h2>
+                    <div class="underline"></div>
+                </div>
+                <p class="donate-description">We accept donations via trusted platforms; funds are processed securely
+                    and used directly for student scholarships, travel and housing support.</p>
+                <div class="donation-grid">
+                    <div class="don-card">
+                        <i class="fas fa-hand-holding-usd" aria-hidden="true"></i>
+                        <h3>One-Time Donation</h3>
+                        <p>Make a single donation to support our students' educational journeys.</p>
+                        <div class="amounts" role="list">
+                            <button class="chip" data-amount="25">$25</button>
+                            <button class="chip" data-amount="50">$50</button>
+                            <button class="chip" data-amount="100">$100</button>
+                            <button class="chip" data-amount="250">$250</button>
+                        </div>
+                        <div class="custom-amount">
+                            <input class="input" id="customOneTime" inputmode="numeric" pattern="[0-9]*"
+                                placeholder="Custom amount">
+                        </div>
+                        <div class="donate-button">
+                            <a class="btn btn-primary" href="#">Donate Now</a>
                         </div>
                     </div>
-                </div>
-                <!-- Project Card 2 -->
-                <div class="project-card">
-                    <div class="project-img"><img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Educational Reconstruction"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Educational Reconstruction</h3>
-                        <p class="project-desc">Rebuilding educational infrastructure in Gaza. Over 90% of schools and universities have been damaged or destroyed.</p>
-                        <div class="project-stats">
-                            <div class="stat"><span class="stat-number">293</span><span class="stat-label">Schools Damaged</span></div>
-                            <div class="stat"><span class="stat-number">88%</span><span class="stat-label">Need Reconstruction</span></div>
+
+                    <div class="don-card">
+                        <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                        <h3>Monthly Support</h3>
+                        <p>Become a sustaining donor with automatic monthly contributions.</p>
+                        <div class="amounts">
+                            <button class="chip" data-amount="10">$10</button>
+                            <button class="chip" data-amount="25">$25</button>
+                            <button class="chip" data-amount="50">$50</button>
+                            <button class="chip" data-amount="100">$100</button>
+                        </div>
+                        <div class="custom-amount">
+                            <input class="input" id="customMonthly" inputmode="numeric" placeholder="Custom amount">
+                        </div>
+                        <div class="donate-button">
+                            <a class="btn btn-primary" href="#">Subscribe Monthly</a>
                         </div>
                     </div>
-                </div>
-                <!-- Project Card 3 -->
-                <div class="project-card">
-                    <div class="project-img"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Digital Rights Advocacy"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Digital Rights Advocacy</h3>
-                        <p class="project-desc">Fighting against the blocking of Palestinian journalists' and students' social media accounts to ensure their voices are heard.</p>
-                        <div class="project-stats">
-                            <div class="stat"><span class="stat-number">100+</span><span class="stat-label">Accounts Restored</span></div>
-                            <div class="stat"><span class="stat-number">7</span><span class="stat-label">Platforms Engaged</span></div>
+
+                    <div class="don-card">
+                        <i class="fas fa-gift" aria-hidden="true"></i>
+                        <h3>Sponsor a Student</h3>
+                        <p>Fully fund a student's educational expenses for an entire semester.</p>
+                        <div class="amounts">
+                            <button class="chip" data-amount="500">$500</button>
+                            <button class="chip" data-amount="1000">$1000</button>
+                            <button class="chip" data-amount="2500">$2500</button>
+                        </div>
+                        <p class="sponsor-note">*Covers tuition, books and living expenses</p>
+                        <div class="donate-button">
+                            <a class="btn btn-primary" href="#">Sponsor Now</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- =================================================================
-    BALADI MARKET SECTION
-    ================================================================== -->
-    <section id="baladi-market" class="baladi-market">
-        <div class="container">
-            <div class="section-title">
-                <h2>Baladi Market</h2>
-                <div class="title-underline"></div>
-            </div>
-            <div class="market-preview" onclick="window.open('https://baladi.it/', '_blank')">
-                <h3>Discover Authentic Palestinian Products</h3>
-                <p>Baladi Market offers traditional Palestinian crafts, foods, and products. All proceeds support our educational initiatives.</p>
-                <div class="market-iframe-container">
-                    <iframe src="https://baladi.it/" title="Baladi Market Preview" frameborder="0" allowfullscreen></iframe>
-                    <div class="market-overlay">
-                        <div class="market-overlay-text">Click to Visit Baladi Market</div>
-                    </div>
+        <section id="our-projects" class="our-projects">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Projects</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="projects">
+                    <article class="project">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=60"
+                                alt="Student Evacuation Program">
+                        </div>
+                        <div class="meta">
+                            <h3>Student Evacuation Program</h3>
+                            <p class="project-desc">Helping Palestinian students secure fully funded university places
+                                abroad and navigate visa requirements amidst the crisis.</p>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1200&q=60"
+                                alt="Educational Reconstruction">
+                        </div>
+                        <div class="meta">
+                            <h3>Educational Reconstruction</h3>
+                            <p class="project-desc">Rebuilding educational infrastructure in Gaza. We work with partners
+                                to restore learning spaces and resources.</p>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=60"
+                                alt="Digital Rights Advocacy">
+                        </div>
+                        <div class="meta">
+                            <h3>Digital Rights Advocacy</h3>
+                            <p class="project-desc">Fighting for Palestinian students' and journalists' digital rights
+                                so their voices are heard.</p>
+                        </div>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- =================================================================
-    JOIN US / CONTACT SECTION
-    ================================================================== -->
-    <section id="join-us" class="join-us">
-        <div class="container">
-            <div class="section-title">
-                <h2>Join Us</h2>
-                <div class="title-underline"></div>
+        <section id="baladi-market" class="baladi-market">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Baladi Market</h2>
+                    <div class="underline"></div>
+                </div>
+
+                <div class="market-grid">
+                    <div class="market-preview">
+                        <h3>Shop to support students</h3>
+                        <p>Baladi Market offers authentic Palestinian crafts, clothing and food — and your purchases
+                            make a real difference. A portion of the proceeds from every order supports <strong>Gaza
+                                Students Beyond Borders</strong>: proceeds go to scholarships, textbooks, travel and
+                            emergency housing for students in need. Buying from Baladi Market is an easy, impactful way
+                            to help.</p>
+                        <ul>
+                            <li>Handmade and fair-trade Palestinian products</li>
+                            <li>Part of each purchase is allocated to student support funds</li>
+                            <li>Free shipping thresholds within Europe (visit the shop for details)</li>
+                        </ul>
+                        <div class="market-buttons">
+                            <a class="btn btn-primary" href="https://baladi.it/" target="_blank" rel="noopener">Shop &
+                                Support Baladi Market</a>
+                            <a class="btn" href="#to-donate">Donate directly</a>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="market-contact">Questions about how proceeds are shared? Contact us at
+                    <strong>info@gazastudents.org</strong> or visit Baladi's site for product details.</p>
             </div>
-            <div class="join-container">
-                <!-- Newsletter Subscription Form -->
-                <div class="join-form">
-                    <h3>Subscribe to Our Newsletter</h3>
-                    <form id="newsletter-form">
-                        <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" class="form-control" placeholder="Your email address" required></div>
-                        <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" class="form-control" placeholder="Your full name"></div>
-                        <div class="checkbox-group"><input type="checkbox" id="updates"><label for="updates">Receive updates about volunteer opportunities</label></div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe</button>
+        </section>
+
+        <section id="join-us" class="join-us">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Volunteer</h2>
+                    <div class="underline"></div>
+                </div>
+
+                <div class="join-area">
+                    <form id="volunteer-form" class="vol-form" aria-labelledby="vol-form-heading">
+                        <h3 id="vol-form-heading">Can you help a Gazan student?</h3>
+                        <p>Please answer a few quick questions so we can match students with families and supporters in
+                            Italy.</p>
+
+                        <div class="vol-qs">
+                            <div class="field">
+                                <div class="label">Are you a family in Italy who can host a student?</div>
+                                <div class="radio-row" role="radiogroup" aria-label="Are you a family in Italy">
+                                    <label><input type="radio" name="is_family" value="yes"> Yes</label>
+                                    <label><input type="radio" name="is_family" value="no" checked> No</label>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label" for="full-name">Full name</label>
+                                <input id="full-name" name="full_name" class="input" type="text"
+                                    placeholder="Your full name" required>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Contact information (email or phone)</label>
+                                <input id="contact-email" name="contact_email" class="input" type="email"
+                                    placeholder="name@example.com">
+                                <span class="contact-note">Or provide a phone number below if you prefer.</span>
+                                <input id="contact-phone" name="contact_phone" class="input" type="tel"
+                                    placeholder="+39...">
+                            </div>
+
+                            <div class="field" id="hosting-details">
+                                <label class="label">Hosting details (optional)</label>
+                                <textarea id="hosting-info" name="hosting_info" class="textarea"
+                                    placeholder="Availability, region/city, number of months you can host..."></textarea>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">How would you like to help? (choose all that apply)</label>
+                                <div class="help-options">
+                                    <label><input type="checkbox" name="help_options" value="volunteer">
+                                        Volunteer</label>
+                                    <label><input type="checkbox" name="help_options" value="donate"> Donate</label>
+                                    <label><input type="checkbox" name="help_options" value="events"> Organize
+                                        events</label>
+                                    <label><input type="checkbox" name="help_options" value="join_group"> Join our
+                                        group</label>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Message (optional)</label>
+                                <textarea id="message" name="message" class="textarea"
+                                    placeholder="Anything else you'd like us to know..."></textarea>
+                            </div>
+
+                            <div class="field agreement">
+                                <label><input id="can-contact" name="can_contact" type="checkbox"> I agree to be
+                                    contacted about this offer.</label>
+                            </div>
+
+                            <div class="submit-row">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
                     </form>
-                    <!-- Social Media Links -->
-                    <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <!-- Contact Form -->
-                <div class="join-info">
-                    <h3>Contact Us</h3>
-                    <form id="contact-form">
-                        <div class="form-group"><label for="contact-name">Full Name</label><input type="text" id="contact-name" class="form-control" placeholder="Your name" required></div>
-                        <div class="form-group"><label for="contact-email">Email Address</label><input type="email" id="contact-email" class="form-control" placeholder="Your email" required></div>
-                        <div class="form-group"><label for="message">Message</label><textarea id="message" class="form-control" rows="5" placeholder="Your message" required></textarea></div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                    <!-- Contact Details -->
-                    <div class="contact-info">
-                        <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div>info@gazastudents.org</div></div>
-                        <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone"></i></div><div>+1 (555) 123-4567</div></div>
-                        <div class="contact-item"><div class="contact-icon"><i class="fab fa-telegram"></i></div><div>Telegram Channel</div></div>
-                    </div>
+
+                    <aside class="vol-side" aria-label="Get involved and contact">
+                        <h4>Get involved</h4>
+                        <p>Select ways you'd like to support Gaza students — we connect volunteers, donors and event
+                            organizers.</p>
+
+                        <div class="help-list" role="list">
+                            <div class="help-item">
+                                <div>Join our volunteer network</div>
+                                <button class="btn" onclick="scrollToForm()">Join</button>
+                            </div>
+                            <div class="help-item">
+                                <div>Donate or sponsor</div>
+                                <button class="btn" onclick="location.href='#to-donate'">Donate</button>
+                            </div>
+                            <div class="help-item">
+                                <div>Organize an event</div>
+                                <button class="btn" onclick="scrollToForm()">Contact</button>
+                            </div>
+                            <div class="help-item">
+                                <div>Partner with us</div>
+                                <button class="btn" onclick="scrollToForm()">Partner</button>
+                            </div>
+                        </div>
+
+                        <div class="contact-block">
+                            <div class="contact-title">Contact</div>
+
+                            <div class="contact-row">
+                                <div class="contact-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+                                <div class="contact-text">info@gazastudents.org</div>
+                            </div>
+                            <div class="contact-row">
+                                <div class="contact-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
+                                <div class="contact-text">+1 (555) 123‑4567</div>
+                            </div>
+                            <div class="contact-row">
+                                <div class="contact-icon"><i class="fab fa-telegram" aria-hidden="true"></i></div>
+                                <div class="contact-text">t.me/gazastudents</div>
+                            </div>
+
+                            <div class="socials">
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                                    aria-label="Instagram">
+                                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://t.me/gazastudents" target="_blank" rel="noopener noreferrer"
+                                    aria-label="Telegram">
+                                    <i class="fab fa-telegram" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                                    aria-label="Facebook">
+                                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </aside>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- =================================================================
-    FOOTER
-    ================================================================== -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <!-- Footer Column 1: About -->
-                <div class="footer-column">
-                    <h3>Gaza Students Beyond Borders</h3>
-                    <p>Empowering education, creating opportunities, and building bridges for a better future for Palestinian students.</p>
-                </div>
-                <!-- Footer Column 2: Quick Links -->
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#our-projects">Our Projects</a></li>
-                        <li><a href="#baladi-market">Baladi Market</a></li>
-                        <li><a href="#to-donate">To Donate</a></li>
-                        <li><a href="#join-us">Join Us</a></li>
-                    </ul>
-                </div>
-                <!-- Footer Column 3: Get Involved -->
-                <div class="footer-column">
-                    <h3>Get Involved</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Volunteer Opportunities</a></li>
-                        <li><a href="#">Partnerships</a></li>
-                        <li><a href="#">Donate</a></li>
-                        <li><a href="#">Fundraising Events</a></li>
-                    </ul>
-                </div>
+        <div class="container footer-inner">
+            <div class="footer-left">
+                <strong>Gaza Students Beyond Borders</strong>
+                <p>Supporting students from Gaza with scholarships, housing and pathways to international education.
+                    Contact details and social links are available on the Volunteer section above.</p>
             </div>
-            <!-- Copyright Information -->
-            <div class="copyright">
-                <p>&copy; 2025 Gaza Students Beyond Borders. All rights reserved.</p>
-            </div>
+
+            <nav aria-label="Footer links">
+                <ul class="footer-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#our-projects">Projects</a></li>
+                    <li><a href="#baladi-market">Baladi Market</a></li>
+                    <li><a href="#to-donate">Donate</a></li>
+                    <li><a href="#join-us">Volunteer</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-spacer">&nbsp;</div>
+
+            <div class="copyright">&copy; 2025 Gaza Students Beyond Borders — All rights reserved.</div>
         </div>
     </footer>
 
-    <!-- =================================================================
-    MODALS
-    ================================================================== -->
-    <!-- About Us Modal -->
-    <div id="aboutModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('aboutModal')">&times;</span>
-            <h2>About Gaza Students Beyond Borders</h2>
-            <p>Gaza Students Beyond Borders was founded in 2020 with the mission of supporting students from Gaza in accessing quality education and professional opportunities around the world. We believe that education is a fundamental right and a powerful tool for positive change.</p>
-            <ul>
-                <li>Scholarship and university application assistance</li>
-                <li>Visa and travel support</li>
-                <li>Mentorship programs with professionals worldwide</li>
-            </ul>
-            <p>To date, we have supported over 200 students in their educational journeys across 15 different countries. Our network includes volunteers, professionals, and partner organizations dedicated to creating opportunities for Gaza's youth.</p>
-            <a href="#" class="btn btn-primary">Download Our Brochure</a>
-        </div>
-    </div>
-
-    <!-- Main JavaScript file -->
     <script src="script.js"></script>
 </body>
 
