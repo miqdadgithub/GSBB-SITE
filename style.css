@@ -152,11 +152,15 @@ nav a {
 .mobile-nav {
     position: fixed;
     inset: 0;
-    background: var(--bg); /* Changed from transparent to solid */
+    background-color: var(--bg); /* Ensure solid background */
     z-index: 80;
     transform: translateX(100%);
     transition: transform var(--duration);
     padding: 80px 24px 24px;
+}
+
+.mobile-nav.is-active {
+    transform: translateX(0);
 }
 
 .mobile-nav ul {
