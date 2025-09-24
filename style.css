@@ -57,13 +57,20 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 0;
+    padding: 10px 0; /* Reduced padding to accommodate logo */
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 12px;
+}
+
+.logo svg {
+    display: block;
+    height: 60px; /* Adjust height as needed */
+    width: auto;
+    max-width: 100%;
 }
 
 .brand-title {
@@ -685,6 +692,14 @@ footer {
         display: flex;
     }
 
+    .logo svg {
+        height: 50px; /* Slightly smaller on mobile */
+    }
+    
+    .header-inner {
+        padding: 8px 0;
+    }
+
     .join-area {
         grid-template-columns: 1fr;
     }
@@ -721,5 +736,18 @@ footer {
     .footer-links {
         flex-wrap: wrap;
         justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo svg {
+        height: 45px; /* Even smaller on very small screens */
+    }
+}
+
+/* Ensure the logo doesn't get too large on very wide screens */
+@media (min-width: 1400px) {
+    .logo svg {
+        max-width: 340px; /* Original SVG width */
     }
 }
