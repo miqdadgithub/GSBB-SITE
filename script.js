@@ -1,5 +1,5 @@
 (function() {
-    // Mobile menu functionality
+    // Enhanced mobile menu functionality
     const hamburger = document.getElementById('hamburger');
     const mobileNav = document.getElementById('mobileNav');
 
@@ -8,6 +8,7 @@
         mobileNav.setAttribute('aria-hidden', 'false');
         hamburger.setAttribute('aria-expanded', 'true');
         hamburger.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
     }
 
     function closeMenu() {
@@ -15,6 +16,7 @@
         mobileNav.setAttribute('aria-hidden', 'true');
         hamburger.setAttribute('aria-expanded', 'false');
         hamburger.classList.remove('is-active');
+        document.body.style.overflow = '';
     }
 
     hamburger.addEventListener('click', function() {
@@ -33,7 +35,7 @@
         a.addEventListener('click', closeMenu);
     });
 
-    // Donation chips functionality
+    // Enhanced donation chips functionality
     document.querySelectorAll('.amounts').forEach(group => {
         group.addEventListener('click', function(e) {
             const btn = e.target.closest('button[data-amount]');
@@ -48,7 +50,15 @@
         });
     });
 
-    // Simplified volunteer form behavior
+    // Clear active chips when custom input is used
+    document.querySelectorAll('.custom-amount input').forEach(input => {
+        input.addEventListener('input', function() {
+            const parent = this.closest('.don-card');
+            parent.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        });
+    });
+
+    // Enhanced volunteer form behavior
     const volunteerForm = document.getElementById('volunteer-form');
 
     if (volunteerForm) {
@@ -83,11 +93,90 @@
         });
     }
 
+    // Enhanced scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+    });
+
+    // Enhanced header behavior on scroll
+    let lastScrollY = window.scrollY;
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            header.style.background = 'rgba(255, 255, 255, 0.95)';
+            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+            header.style.background = 'rgba(255, 255, 255, 0.98)';
+            header.style.boxShadow = 'none';
+        }
+
+        lastScrollY = window.scrollY;
+    });
+
     // Lazy loading for images
     document.querySelectorAll('img').forEach(img => {
         if (!img.hasAttribute('loading')) {
             img.setAttribute('loading', 'lazy');
         }
+    });
+
+    // Enhanced focus management for accessibility
+    document.addEventListener('keyup', function(e) {
+        if (e.key === 'Tab') {
+            document.documentElement.classList.add('keyboard-navigation');
+        }
+    });
+
+    document.addEventListener('mousedown', function() {
+        document.documentElement.classList.remove('keyboard-navigation');
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Add loading state to buttons
+    document.querySelectorAll('.btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            if (this.type === 'submit' || this.href === '#') {
+                this.classList.add('loading');
+                setTimeout(() => {
+                    this.classList.remove('loading');
+                }, 2000);
+            }
+        });
     });
 
 })();
