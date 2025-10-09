@@ -1,7 +1,9 @@
 :root {
     --accent: #E10600;
     --accent-600: #c00400;
-    --bg: #ffffff;
+    --bg: #fbfaf8;
+    /* warmer off-white - replace current #ffffff */
+    --bg-2: #f7f3ee;
     --muted: #f6f6f7;
     --text: #0b0b0b;
     --muted-text: #59616b;
@@ -22,14 +24,240 @@ html {
     font-size: 16px;
 }
 
+
+/* Font assignments */
+
 body {
     margin: 0;
-    font-family: 'Baladi Sans', 'Inter', sans-serif;
+    font-family: 'Inter', 'Suisse Intl', sans-serif;
     line-height: 1.5;
     color: var(--text);
-    background: var(--bg);
+    background: linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 100%);
     overflow-x: hidden;
 }
+
+
+/* Logo/title uses Waterlily */
+
+.logo,
+.logo-text {
+    font-family: 'Waterlily', serif;
+}
+
+
+/* Buttons, section names, and titles use Lemon */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.hero-title,
+.section-title h2,
+.don-card h3,
+.project h3,
+.market-coming-soon h3,
+.vol-form h3,
+.btn,
+.cta {
+    font-family: 'Lemon', cursive;
+}
+
+
+/* Enhanced button hover effects */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all var(--duration) var(--ease-out);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.btn:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border: 2px solid var(--accent);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 36px rgba(225, 6, 0, 0.18);
+    background: white;
+    color: var(--accent);
+    border-color: white;
+}
+
+.btn-ghost {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #fff;
+    background: transparent;
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 36px rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+
+/* Enhanced chip hover effects */
+
+.chip {
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid #e8e8e8;
+    background: #fafafa;
+    cursor: pointer;
+    transition: all var(--duration) var(--ease-out);
+}
+
+.chip:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    background: var(--accent);
+    color: white;
+}
+
+.chip.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+
+/* Enhanced CTA button hover effects */
+
+.cta {
+    background: var(--accent);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: none;
+    box-shadow: 0 8px 26px rgba(225, 6, 0, 0.12);
+    transition: all var(--duration) var(--ease-out);
+}
+
+.cta:hover,
+.cta:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(225, 6, 0, 0.18);
+    background: white;
+    color: var(--accent);
+}
+
+
+/* Enhanced Hero Section with better image handling */
+
+
+/* Enhanced Hero Section - UPDATED BACKGROUND IMAGE (from file 2) */
+
+.hero {
+    min-height: 50vh;
+    /* reduced from 62vh */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+    /* reduced padding */
+    background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.33), rgba(0, 0, 0, 0.52)), url('https://imgix.bustle.com/mic/hx6idm47zn2naklwjtfidoloeq25jmxek9nqfmqx0i8ipozxrqtuppnmx6vofd6d.jpg?w=414&h=276&fit=crop&crop=faces&dpr=2');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.hero-inner {
+    max-width: 980px;
+    padding: 24px;
+    /* reduced from 32px */
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 1s var(--ease-out);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1.hero-title {
+    font-family: 'Lemon', cursive;
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
+    line-height: 1.05;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+p.hero-lead {
+    font-size: clamp(0.98rem, 1.2vw, 1.125rem);
+    opacity: 0.95;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Rest of your CSS remains the same */
 
 img {
     max-width: 100%;
@@ -46,6 +274,9 @@ a {
     max-width: var(--max-w);
     margin: 0 auto;
     padding: 0 18px;
+    position: relative;
+    z-index: 2;
+    /* small z-index for container */
 }
 
 
@@ -124,25 +355,19 @@ nav a:hover:after {
     width: 100%;
 }
 
-.cta {
-    background: var(--accent);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 999px;
-    border: none;
-    box-shadow: 0 8px 26px rgba(225, 6, 0, 0.12);
-    transition: transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out), background-color var(--duration) var(--ease-out);
+
+/* Remove underline from donate button in header */
+
+nav a.cta::after {
+    display: none;
 }
 
-.cta:hover,
-.cta:focus {
-    transform: translateY(-3px);
-    box-shadow: 0 18px 40px rgba(225, 6, 0, 0.18);
-    background: var(--accent-600);
+body.menu-open {
+    overflow: hidden;
 }
 
 
-/* Enhanced Hamburger */
+/* Redesigned Hamburger */
 
 .hamburger {
     display: none;
@@ -150,7 +375,7 @@ nav a:hover:after {
     height: 48px;
     border-radius: 10px;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -167,15 +392,15 @@ nav a:hover:after {
 
 .hamburger .bar {
     display: block;
-    width: 22px;
+    width: 24px;
     height: 2px;
     background: var(--text);
     border-radius: 2px;
-    transition: transform var(--duration) var(--ease-out), opacity var(--duration) var(--ease-out), background-color var(--duration) var(--ease-out);
+    transition: transform var(--duration) var(--ease-out), opacity var(--duration) var(--ease-out);
 }
 
 .hamburger.is-active .bar:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
 }
 
 .hamburger.is-active .bar:nth-child(2) {
@@ -183,42 +408,49 @@ nav a:hover:after {
 }
 
 .hamburger.is-active .bar:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 
-/* Enhanced Mobile Nav */
+/* Redesigned Mobile Nav as a Full-Screen Overlay */
 
 .mobile-nav {
     position: fixed;
     inset: 0;
-    background: var(--bg);
+    /* Full screen */
+    background: #ffffff;
+    /* Pure white background */
     z-index: 80;
     transform: translateX(100%);
     transition: transform 0.4s var(--ease-out);
-    padding: 80px 24px 24px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+.mobile-nav.is-active {
+    transform: translateX(0);
 }
 
 .mobile-nav ul {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    align-items: flex-start;
     padding: 0;
     margin: 0;
     list-style: none;
+    text-align: center;
 }
 
 .mobile-nav a {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 600;
-    padding: 8px 0;
+    color: var(--text);
+    padding: 12px 24px;
     display: block;
-    width: 100%;
     transition: color var(--duration) var(--ease-out);
+    text-decoration: none;
 }
 
 .mobile-nav a:hover {
@@ -226,67 +458,26 @@ nav a:hover:after {
 }
 
 
-/* Enhanced Hero Section */
+/* Style for the CTA button inside the mobile menu */
 
-.hero {
-    min-height: 62vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 56px 0;
-    background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.33), rgba(0, 0, 0, 0.52)), url('https://upload.wikimedia.org/wikipedia/commons/8/8c/Anti-Israel_Pro-Palestine_protest_%2853588603698%29.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: white;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+.mobile-nav a.mobile-cta {
+    background: var(--accent);
+    color: #fff;
+    border-radius: 999px;
+    padding: 10px 20px;
+    /* Smaller padding for mobile */
+    font-size: 1.1rem;
+    /* Smaller font size for mobile */
+    text-decoration: none !important;
+    /* Ensure no underline */
+    font-family: "Lemon", cursive;
+    margin-top: 10px;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 1;
-}
-
-.hero-inner {
-    max-width: 980px;
-    padding: 32px;
-    position: relative;
-    z-index: 2;
-    animation: fadeInUp 1s var(--ease-out);
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-h1.hero-title {
-    font-family: 'Baladi Serif', 'Playfair Display', serif;
-    font-size: clamp(1.6rem, 3vw, 2.6rem);
-    line-height: 1.05;
-    margin-bottom: 12px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-p.hero-lead {
-    font-size: clamp(0.98rem, 1.2vw, 1.125rem);
-    opacity: 0.95;
-    margin-bottom: 20px;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+.mobile-nav a.mobile-cta:hover {
+    background: var(--accent-600);
+    color: #fff;
+    transform: translateY(-2px);
 }
 
 .hero-buttons {
@@ -296,81 +487,12 @@ p.hero-lead {
     flex-wrap: wrap;
 }
 
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 20px;
-    border-radius: 999px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out), background-color var(--duration) var(--ease-out), border-color var(--duration) var(--ease-out);
-    position: relative;
-    overflow: hidden;
-}
-
-.btn::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 5px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.5);
-    opacity: 0;
-    border-radius: 100%;
-    transform: scale(1, 1) translate(-50%);
-    transform-origin: 50% 50%;
-}
-
-.btn:focus:not(:active)::after {
-    animation: ripple 1s ease-out;
-}
-
-@keyframes ripple {
-    0% {
-        transform: scale(0, 0);
-        opacity: 0.5;
-    }
-    100% {
-        transform: scale(20, 20);
-        opacity: 0;
-    }
-}
-
-.btn-primary {
-    background: var(--accent);
-    color: #fff;
-    border: 2px solid var(--accent);
-}
-
-.btn-primary:hover,
-.btn-primary:focus {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 36px rgba(225, 6, 0, 0.18);
-    background: var(--accent-600);
-    border-color: var(--accent-600);
-}
-
-.btn-ghost {
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    color: #fff;
-    background: transparent;
-}
-
-.btn-ghost:hover,
-.btn-ghost:focus {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 36px rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.05);
-}
-
 
 /* Enhanced Sections */
 
 section {
-    padding: 64px 0;
+    padding: 48px 0;
+    /* reduced from 64px */
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
@@ -381,14 +503,27 @@ section.visible {
     transform: translateY(0);
 }
 
+
+/* bring the first section up to overlap hero */
+
+.hero+section {
+    margin-top: -48px;
+    /* lifts next section into hero area */
+    padding-top: 72px;
+    /* ensure content doesn't collide */
+    position: relative;
+    z-index: 3;
+}
+
 .section-title {
     max-width: 880px;
-    margin: 0 auto 24px;
+    margin: 0 auto 20px;
+    /* reduced from 24px */
     text-align: center;
 }
 
 .section-title h2 {
-    font-family: 'Baladi Serif', 'Playfair Display', serif;
+    font-family: 'Lemon', cursive;
     font-size: 1.6rem;
     margin-bottom: 6px;
 }
@@ -460,12 +595,16 @@ section.visible {
 .don-card {
     background: var(--bg);
     padding: 20px;
-    border-radius: var(--radius);
-    box-shadow: 0 8px 22px rgba(12, 14, 16, 0.06);
+    border-radius: 14px;
+    /* increased from 12px */
+    box-shadow: 0 20px 40px rgba(12, 14, 16, 0.06);
+    /* enhanced shadow */
     text-align: center;
     transition: transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out);
     position: relative;
     overflow: hidden;
+    transform-origin: center;
+    z-index: 4;
 }
 
 .don-card::before {
@@ -482,8 +621,10 @@ section.visible {
 }
 
 .don-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(12, 14, 16, 0.08);
+    transform: translateY(-8px);
+    /* increased from -6px */
+    box-shadow: 0 30px 60px rgba(12, 14, 16, 0.1);
+    /* enhanced shadow */
 }
 
 .don-card:hover::before {
@@ -491,7 +632,7 @@ section.visible {
 }
 
 .don-card h3 {
-    font-family: 'Baladi Serif', 'Playfair Display', serif;
+    font-family: 'Lemon', cursive;
     margin: 12px 0;
 }
 
@@ -516,27 +657,6 @@ section.visible {
     gap: 10px;
     justify-content: center;
     margin: 14px 0;
-}
-
-.chip {
-    padding: 10px 14px;
-    border-radius: 999px;
-    border: 1px solid #e8e8e8;
-    background: #fafafa;
-    cursor: pointer;
-    transition: transform var(--duration) var(--ease-out), background-color var(--duration) var(--ease-out), color var(--duration) var(--ease-out), border-color var(--duration) var(--ease-out);
-}
-
-.chip:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent);
-}
-
-.chip.active {
-    background: var(--accent);
-    color: white;
-    border-color: var(--accent);
-    transform: translateY(-2px);
 }
 
 .custom-amount input {
@@ -577,16 +697,22 @@ section.visible {
 
 .project {
     background: var(--bg);
-    border-radius: 12px;
+    border-radius: 14px;
+    /* increased from 12px */
     overflow: hidden;
-    box-shadow: 0 8px 26px rgba(12, 14, 16, 0.06);
+    box-shadow: 0 20px 40px rgba(12, 14, 16, 0.06);
+    /* enhanced shadow */
     transition: transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out);
     position: relative;
+    transform-origin: center;
+    z-index: 4;
 }
 
 .project:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(12, 14, 16, 0.08);
+    /* increased from -8px (same) but note we changed the initial state */
+    box-shadow: 0 30px 60px rgba(12, 14, 16, 0.1);
+    /* enhanced shadow */
 }
 
 .project-image {
@@ -613,7 +739,7 @@ section.visible {
 .project h3 {
     margin-top: 0;
     margin-bottom: 10px;
-    font-family: 'Baladi Serif', 'Playfair Display', serif;
+    font-family: 'Lemon', cursive;
 }
 
 .project-desc {
@@ -626,19 +752,24 @@ section.visible {
 
 .baladi-market {
     padding: 80px 0;
-    background: var(--muted);
+    background: linear-gradient(135deg, var(--bg-2) 0%, var(--muted) 100%);
+    /* subtle gradient */
 }
 
 .market-coming-soon {
     background: var(--bg);
     padding: 50px 40px;
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(12, 14, 16, 0.08);
+    border-radius: 14px;
+    /* increased from 16px? Wait, we are making it 14px to match */
+    box-shadow: 0 30px 60px rgba(12, 14, 16, 0.06);
+    /* enhanced shadow */
     text-align: center;
     position: relative;
     max-width: 800px;
     margin: 0 auto;
     overflow: hidden;
+    transform-origin: center;
+    z-index: 4;
 }
 
 .coming-soon-badge {
@@ -669,7 +800,7 @@ section.visible {
 }
 
 .market-coming-soon h3 {
-    font-family: 'Baladi Serif', 'Playfair Display', serif;
+    font-family: 'Lemon', cursive;
     font-size: 1.8rem;
     margin-bottom: 20px;
     color: var(--text);
@@ -714,12 +845,16 @@ section.visible {
 .vol-form {
     background: var(--bg);
     padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(12, 14, 16, 0.08);
+    border-radius: 14px;
+    /* increased from 16px? Wait, we are making it 14px to match */
+    box-shadow: 0 30px 60px rgba(12, 14, 16, 0.06);
+    /* enhanced shadow */
     max-width: 800px;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
+    transform-origin: center;
+    z-index: 4;
 }
 
 .vol-form::before {
@@ -924,6 +1059,10 @@ footer {
     }
     .logo {
         max-width: calc(100% - 60px);
+        transform: scale(0.8);
+        transform-origin: left center;
+        margin-left: 16px;
+        /* Add space to the left of the logo */
     }
     .logo svg {
         height: 50px;
@@ -1002,6 +1141,10 @@ footer {
 }
 
 @media (max-width: 600px) {
+    .logo {
+        transform: scale(0.75);
+        transform-origin: left center;
+    }
     .logo svg {
         height: 45px;
     }

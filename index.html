@@ -8,7 +8,10 @@
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%89%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@400;600;700&family=Baladi+Sans:wght@400;700&family=Baladi+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font imports -->
+    <link href="https://fonts.cdnfonts.com/css/waterlily" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <meta name="description" content="Support Gaza students to continue their education: scholarships, housing, volunteering and the Baladi Market.">
@@ -30,11 +33,11 @@
                             .e { fill: #f36769 }
                             .f { fill: #41720c }
                             .g { display: none; fill: #f36769 }
-                            .g1 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 72px; fill: #373C28; }
-                            .z1 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 72px; fill: #373C28; }
-                            .a1 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 72px; fill: #373C28; }
-                            .students { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 72px; fill: #237B22; }
-                            .tagline { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 38px; fill: #DB3F4A; letter-spacing: 0.14em; }
+                            .g1 { font-family: 'Waterlily', serif; font-weight: 700; font-size: 72px; fill: #373C28; }
+                            .z1 { font-family: 'Waterlily', serif; font-weight: 700; font-size: 72px; fill: #373C28; }
+                            .a1 { font-family: 'Waterlily', serif; font-weight: 700; font-size: 72px; fill: #373C28; }
+                            .students { font-family: 'Waterlily', serif; font-weight: 700; font-size: 72px; fill: #237B22; }
+                            .tagline { font-family: 'Waterlily', serif; font-weight: 700; font-size: 38px; fill: #DB3F4A; letter-spacing: 0.14em; }
                         </style>
                     </defs>
                     <text x="0" y="78" class="g1">G</text>
@@ -71,17 +74,18 @@
 
             <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
                 <span class="bar" aria-hidden="true"></span>
-                <span class="bar" aria-hidden="true" style="margin-top:6px"></span>
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
             </button>
         </div>
 
         <div id="mobileNav" class="mobile-nav" aria-hidden="true">
             <ul>
-                <li><a href="#about">About</a></li>
+                <li><a href="#about">About Us</a></li>
                 <li><a href="#our-projects">Projects</a></li>
                 <li><a href="#baladi-market">Baladi Market</a></li>
                 <li><a href="#join-us">Volunteer</a></li>
-                <li><a class="cta" href="#to-donate">Donate</a></li>
+                <li><a class="cta mobile-cta" href="#to-donate">Donate</a></li>
             </ul>
         </div>
     </header>
@@ -307,25 +311,26 @@
             <div class="footer-content">
                 <div class="footer-description">
                     <strong>Gaza Students Beyond Borders</strong>
-                    <p>Supporting students from Gaza with scholarships, housing and pathways to international education since 2023.</p>
+                    <p>Supporting students from Gaza with scholarships, housing and pathways to international education since 2024.</p>
                 </div>
 
                 <div class="footer-social">
                     <div class="social-links-horizontal">
-                        <a href="https://facebook.com/gazastudents" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://twitter.com/gazastudents" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://instagram.com/gazastudents" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
+                        <!-- Reordered as requested: phone, email, facebook, instagram, X, telegram -->
+                        <a href="tel:+1234567890" aria-label="Phone">
+                            <i class="fa-solid fa-phone"></i>
                         </a>
                         <a href="mailto:info@gsbb.org" aria-label="Email">
                             <i class="fa-solid fa-envelope"></i>
                         </a>
-                        <a href="tel:+1234567890" aria-label="Phone">
-                            <i class="fa-solid fa-phone"></i>
+                        <a href="https://facebook.com/gazastudents" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com/gazastudents" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://twitter.com/gazastudents" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
                         </a>
                         <a href="https://t.me/gazastudents" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
                             <i class="fab fa-telegram"></i>
