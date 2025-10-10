@@ -2,7 +2,6 @@
     --accent: #E10600;
     --accent-600: #c00400;
     --bg: #fbfaf8;
-    /* warmer off-white - replace current #ffffff */
     --bg-2: #f7f3ee;
     --muted: #f6f6f7;
     --text: #0b0b0b;
@@ -24,9 +23,6 @@ html {
     font-size: 16px;
 }
 
-
-/* Font assignments */
-
 body {
     margin: 0;
     font-family: 'Inter', 'Suisse Intl', sans-serif;
@@ -36,16 +32,167 @@ body {
     overflow-x: hidden;
 }
 
+/* === ENHANCED MOBILE MENU STYLES === */
+/* Mobile menu backdrop - fixed overlay */
+.mobile-menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 9999;
+    -webkit-overflow-scrolling: touch;
+    opacity: 0;
+    transition: opacity var(--duration) var(--ease-out);
+}
 
-/* Logo/title uses Waterlily */
+.mobile-menu-backdrop.active {
+    display: flex;
+    opacity: 1;
+}
 
+/* Mobile menu panel */
+.mobile-menu-panel {
+    width: 100%;
+    max-width: 420px;
+    margin: 48px 12px 12px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    overflow: auto;
+    max-height: calc(100vh - 96px);
+    position: relative;
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    transform: translateY(-20px);
+    transition: transform var(--duration) var(--ease-out);
+}
+
+.mobile-menu-backdrop.active .mobile-menu-panel {
+    transform: translateY(0);
+}
+
+/* Close button with enhanced touch target */
+.mobile-menu-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+    z-index: 10;
+}
+
+.mobile-menu-close:focus {
+    outline: 3px solid #88f;
+}
+
+/* Mobile menu content area */
+.mobile-menu-content {
+    padding: 16px 16px 8px;
+}
+
+.mobile-menu-content h2 {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+    font-family: 'Lemon', cursive;
+}
+
+/* Mobile menu navigation links */
+.mobile-menu-nav a {
+    display: block;
+    padding: 14px 16px;
+    min-height: 44px;
+    line-height: 20px;
+    text-decoration: none;
+    color: #111;
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all var(--duration) var(--ease-out);
+}
+
+.mobile-menu-nav a:active {
+    background: #f7f7f7;
+}
+
+.mobile-menu-nav a.cta {
+    background: var(--accent);
+    color: white;
+    border-radius: 999px;
+    text-align: center;
+    margin: 8px 16px;
+    border: none;
+}
+
+.mobile-menu-nav a.cta:active {
+    background: var(--accent-600);
+}
+
+/* No-scroll utility for when menu is open */
+.no-scroll {
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Enhanced hamburger button */
+.hamburger {
+    display: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    z-index: 100;
+    background: transparent;
+    border: none;
+    transition: background-color var(--duration) var(--ease-out);
+}
+
+.hamburger:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.hamburger .bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform var(--duration) var(--ease-out), opacity var(--duration) var(--ease-out);
+}
+
+/* Hamburger animation when active */
+.hamburger.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* === EXISTING WEBSITE STYLES (Preserved) === */
 .logo,
 .logo-text {
     font-family: 'Waterlily', serif;
 }
-
-
-/* Buttons, section names, and titles use Lemon */
 
 h1,
 h2,
@@ -63,9 +210,6 @@ h6,
 .cta {
     font-family: 'Lemon', cursive;
 }
-
-
-/* Enhanced button hover effects */
 
 .btn {
     display: inline-flex;
@@ -139,9 +283,6 @@ h6,
     color: white;
 }
 
-
-/* Enhanced chip hover effects */
-
 .chip {
     padding: 10px 14px;
     border-radius: 999px;
@@ -165,9 +306,6 @@ h6,
     transform: translateY(-2px);
 }
 
-
-/* Enhanced CTA button hover effects */
-
 .cta {
     background: var(--accent);
     color: white;
@@ -186,20 +324,12 @@ h6,
     color: var(--accent);
 }
 
-
-/* Enhanced Hero Section with better image handling */
-
-
-/* Enhanced Hero Section - UPDATED BACKGROUND IMAGE (from file 2) */
-
 .hero {
     min-height: 50vh;
-    /* reduced from 62vh */
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 40px 0;
-    /* reduced padding */
     background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.33), rgba(0, 0, 0, 0.52)), url('https://imgix.bustle.com/mic/hx6idm47zn2naklwjtfidoloeq25jmxek9nqfmqx0i8ipozxrqtuppnmx6vofd6d.jpg?w=414&h=276&fit=crop&crop=faces&dpr=2');
     background-size: cover;
     background-position: center;
@@ -224,7 +354,6 @@ h6,
 .hero-inner {
     max-width: 980px;
     padding: 24px;
-    /* reduced from 32px */
     position: relative;
     z-index: 2;
     animation: fadeInUp 1s var(--ease-out);
@@ -256,9 +385,6 @@ p.hero-lead {
     text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
 
-
-/* Rest of your CSS remains the same */
-
 img {
     max-width: 100%;
     height: auto;
@@ -276,11 +402,7 @@ a {
     padding: 0 18px;
     position: relative;
     z-index: 2;
-    /* small z-index for container */
 }
-
-
-/* Enhanced Header with better animations */
 
 header {
     position: sticky;
@@ -355,129 +477,8 @@ nav a:hover:after {
     width: 100%;
 }
 
-
-/* Remove underline from donate button in header */
-
 nav a.cta::after {
     display: none;
-}
-
-body.menu-open {
-    overflow: hidden;
-}
-
-
-/* Redesigned Hamburger */
-
-.hamburger {
-    display: none;
-    width: 48px;
-    height: 48px;
-    border-radius: 10px;
-    flex-direction: column;
-    gap: 6px;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    position: relative;
-    z-index: 100;
-    background: transparent;
-    border: none;
-    transition: background-color var(--duration) var(--ease-out);
-}
-
-.hamburger:hover {
-    background: rgba(0, 0, 0, 0.05);
-}
-
-.hamburger .bar {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--text);
-    border-radius: 2px;
-    transition: transform var(--duration) var(--ease-out), opacity var(--duration) var(--ease-out);
-}
-
-.hamburger.is-active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger.is-active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.is-active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-
-/* Redesigned Mobile Nav as a Full-Screen Overlay */
-
-.mobile-nav {
-    position: fixed;
-    inset: 0;
-    /* Full screen */
-    background: #ffffff;
-    /* Pure white background */
-    z-index: 80;
-    transform: translateX(100%);
-    transition: transform 0.4s var(--ease-out);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.mobile-nav.is-active {
-    transform: translateX(0);
-}
-
-.mobile-nav ul {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    text-align: center;
-}
-
-.mobile-nav a {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--text);
-    padding: 12px 24px;
-    display: block;
-    transition: color var(--duration) var(--ease-out);
-    text-decoration: none;
-}
-
-.mobile-nav a:hover {
-    color: var(--accent);
-}
-
-
-/* Style for the CTA button inside the mobile menu */
-
-.mobile-nav a.mobile-cta {
-    background: var(--accent);
-    color: #fff;
-    border-radius: 999px;
-    padding: 10px 20px;
-    /* Smaller padding for mobile */
-    font-size: 1.1rem;
-    /* Smaller font size for mobile */
-    text-decoration: none !important;
-    /* Ensure no underline */
-    font-family: "Lemon", cursive;
-    margin-top: 10px;
-}
-
-.mobile-nav a.mobile-cta:hover {
-    background: var(--accent-600);
-    color: #fff;
-    transform: translateY(-2px);
 }
 
 .hero-buttons {
@@ -487,12 +488,8 @@ body.menu-open {
     flex-wrap: wrap;
 }
 
-
-/* Enhanced Sections */
-
 section {
     padding: 48px 0;
-    /* reduced from 64px */
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
@@ -503,14 +500,9 @@ section.visible {
     transform: translateY(0);
 }
 
-
-/* bring the first section up to overlap hero */
-
 .hero+section {
     margin-top: -48px;
-    /* lifts next section into hero area */
     padding-top: 72px;
-    /* ensure content doesn't collide */
     position: relative;
     z-index: 3;
 }
@@ -518,7 +510,6 @@ section.visible {
 .section-title {
     max-width: 880px;
     margin: 0 auto 20px;
-    /* reduced from 24px */
     text-align: center;
 }
 
@@ -558,9 +549,6 @@ section.visible {
     }
 }
 
-
-/* About */
-
 .about .lead {
     max-width: 860px;
     margin: 0 auto;
@@ -568,9 +556,6 @@ section.visible {
     font-size: 1rem;
     line-height: 1.7;
 }
-
-
-/* Enhanced Donate Section */
 
 .to-donate {
     background: var(--muted);
@@ -596,9 +581,7 @@ section.visible {
     background: var(--bg);
     padding: 20px;
     border-radius: 14px;
-    /* increased from 12px */
     box-shadow: 0 20px 40px rgba(12, 14, 16, 0.06);
-    /* enhanced shadow */
     text-align: center;
     transition: transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out);
     position: relative;
@@ -622,9 +605,7 @@ section.visible {
 
 .don-card:hover {
     transform: translateY(-8px);
-    /* increased from -6px */
     box-shadow: 0 30px 60px rgba(12, 14, 16, 0.1);
-    /* enhanced shadow */
 }
 
 .don-card:hover::before {
@@ -685,9 +666,6 @@ section.visible {
     font-style: italic;
 }
 
-
-/* Enhanced Projects */
-
 .projects {
     display: grid;
     gap: 22px;
@@ -698,10 +676,8 @@ section.visible {
 .project {
     background: var(--bg);
     border-radius: 14px;
-    /* increased from 12px */
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(12, 14, 16, 0.06);
-    /* enhanced shadow */
     transition: transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out);
     position: relative;
     transform-origin: center;
@@ -710,9 +686,7 @@ section.visible {
 
 .project:hover {
     transform: translateY(-8px);
-    /* increased from -8px (same) but note we changed the initial state */
     box-shadow: 0 30px 60px rgba(12, 14, 16, 0.1);
-    /* enhanced shadow */
 }
 
 .project-image {
@@ -747,22 +721,16 @@ section.visible {
     line-height: 1.6;
 }
 
-
-/* Enhanced Baladi Market Section */
-
 .baladi-market {
     padding: 80px 0;
     background: linear-gradient(135deg, var(--bg-2) 0%, var(--muted) 100%);
-    /* subtle gradient */
 }
 
 .market-coming-soon {
     background: var(--bg);
     padding: 50px 40px;
     border-radius: 14px;
-    /* increased from 16px? Wait, we are making it 14px to match */
     box-shadow: 0 30px 60px rgba(12, 14, 16, 0.06);
-    /* enhanced shadow */
     text-align: center;
     position: relative;
     max-width: 800px;
@@ -834,9 +802,6 @@ section.visible {
     margin-top: 30px;
 }
 
-
-/* Enhanced Volunteer Form */
-
 .join-us {
     padding: 80px 0;
     background: var(--muted);
@@ -846,9 +811,7 @@ section.visible {
     background: var(--bg);
     padding: 30px;
     border-radius: 14px;
-    /* increased from 16px? Wait, we are making it 14px to match */
     box-shadow: 0 30px 60px rgba(12, 14, 16, 0.06);
-    /* enhanced shadow */
     max-width: 800px;
     margin: 0 auto;
     position: relative;
@@ -950,9 +913,6 @@ section.visible {
     margin-top: 24px;
 }
 
-
-/* Enhanced Footer */
-
 footer {
     background: #0b0b0b;
     color: #d7d7d7;
@@ -1026,9 +986,6 @@ footer {
     font-size: 0.9rem;
 }
 
-
-/* Enhanced Accessibility */
-
 .input:focus,
 .textarea:focus,
 .cta:focus,
@@ -1047,9 +1004,7 @@ footer {
     }
 }
 
-
-/* Enhanced Responsive Design */
-
+/* === RESPONSIVE DESIGN === */
 @media (max-width: 900px) {
     nav ul {
         display: none;
@@ -1062,7 +1017,6 @@ footer {
         transform: scale(0.8);
         transform-origin: left center;
         margin-left: 16px;
-        /* Add space to the left of the logo */
     }
     .logo svg {
         height: 50px;
