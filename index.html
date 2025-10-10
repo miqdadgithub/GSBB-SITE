@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +13,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <meta name="description" content="Support Gaza students to continue their education: scholarships, housing, volunteering and the Baladi Market.">
 </head>
 
 <body>
@@ -78,17 +76,24 @@
                 <span class="bar" aria-hidden="true"></span>
             </button>
         </div>
-
-        <div id="mobileNav" class="mobile-nav" aria-hidden="true">
-            <ul>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#our-projects">Projects</a></li>
-                <li><a href="#baladi-market">Baladi Market</a></li>
-                <li><a href="#join-us">Volunteer</a></li>
-                <li><a class="cta mobile-cta" href="#to-donate">Donate</a></li>
-            </ul>
-        </div>
     </header>
+
+    <!-- Enhanced Mobile Menu Backdrop & Panel -->
+    <div id="mobileMenuBackdrop" class="mobile-menu-backdrop" aria-hidden="true">
+        <div id="mobileMenuPanel" class="mobile-menu-panel" role="dialog" aria-modal="true" aria-labelledby="mobileMenuTitle" tabindex="-1">
+            <button id="mobileMenuClose" class="mobile-menu-close" aria-label="Close menu" title="Close menu">✕</button>
+            <div class="mobile-menu-content">
+                <h2 id="mobileMenuTitle">Menu</h2>
+                <nav class="mobile-menu-nav" aria-label="Mobile navigation">
+                    <a href="#about">About Us</a>
+                    <a href="#our-projects">Projects</a>
+                    <a href="#baladi-market">Baladi Market</a>
+                    <a href="#join-us">Volunteer</a>
+                    <a class="cta" href="#to-donate">Donate</a>
+                </nav>
+            </div>
+        </div>
+    </div>
 
     <main>
         <section class="hero" role="banner">
@@ -344,5 +349,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
