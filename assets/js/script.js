@@ -88,25 +88,54 @@
     // ===== VOLUNTEER FORM =====
     const volunteerForm = document.getElementById('volunteer-form');
     if (volunteerForm) {
+        // Create error message container
+        const errorContainer = document.createElement('div');
+        errorContainer.className = 'form-errors';
+        errorContainer.setAttribute('role', 'alert');
+        errorContainer.setAttribute('aria-live', 'polite');
+        errorContainer.style.display = 'none';
+        volunteerForm.insertBefore(errorContainer, volunteerForm.firstChild);
+
+        function showError(message) {
+            errorContainer.innerHTML = `<p>${message}</p>`;
+            errorContainer.style.display = 'block';
+            errorContainer.focus();
+        }
+
+        function hideError() {
+            errorContainer.style.display = 'none';
+        }
+
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
         volunteerForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            hideError();
 
             const name = document.getElementById('full-name').value.trim();
             const email = document.getElementById('contact-email').value.trim();
             const contact = document.getElementById('can-contact').checked;
 
             if (!name) {
-                alert('Please provide your full name.');
+                showError('Please provide your full name.');
                 document.getElementById('full-name').focus();
                 return;
             }
             if (!email) {
-                alert('Please provide your email address.');
+                showError('Please provide your email address.');
+                document.getElementById('contact-email').focus();
+                return;
+            }
+            if (!validateEmail(email)) {
+                showError('Please enter a valid email address.');
                 document.getElementById('contact-email').focus();
                 return;
             }
             if (!contact) {
-                alert('Please agree to be contacted about volunteer opportunities.');
+                showError('Please agree to be contacted about volunteer opportunities.');
                 return;
             }
 
@@ -131,6 +160,7 @@
             fetch(WEB_APP_URL, {
                     method: 'POST',
                     body: urlEncoded,
+                    signal: AbortSignal.timeout(10000),
                 })
                 .then((res) => {
                     if (!res.ok) throw new Error('Network error');
@@ -138,7 +168,8 @@
                 })
                 .then((data) => {
                     if (data.result === 'success') {
-                        alert('Thank you for your interest in volunteering! We have received your application and will contact you soon.');
+                        errorContainer.innerHTML = '<p style="color: #0e8a52; font-weight: 600;">✓ Thank you for your interest in volunteering! We have received your application and will contact you soon.</p>';
+                        errorContainer.style.display = 'block';
                         volunteerForm.reset();
                     } else {
                         throw new Error(data.error || 'Unknown error');
@@ -146,7 +177,7 @@
                 })
                 .catch((err) => {
                     console.error(err);
-                    alert('Sorry, there was an error submitting your form. Please try again or contact us directly.');
+                    showError('Sorry, there was an error submitting your form. Please try again or contact us directly at info@gsbb.org');
                 })
                 .finally(() => {
                     submitBtn.textContent = original;
@@ -155,12 +186,51 @@
         });
     }
 
-    // ===== PROJECT CARDS click =====
-    document.querySelectorAll('.project[data-project]').forEach((card) => {
-        card.addEventListener('click', () => {
-            const id = card.getAttribute('data-project');
-            if (!id) return;
-            window.open(`project-${id}.html`, '_blank');
+
+
+    // ===== INTERSECTION OBSERVER for sections & staggered reveals =====
+    if ('IntersectionObserver' in window) {
+        // Main section observer
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    sectionObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.has-js section').forEach(section => sectionObserver.observe(section));
+
+        // Staggered reveal for cards
+        document.querySelectorAll('.donation-grid, .projects').forEach((container) => {
+            const items = Array.from(container.children);
+            const childObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        items.forEach((el, i) => {
+                            el.style.transitionDelay = `${i * 80}ms`;
+                            el.classList.add('visible');
+                        });
+                        childObserver.disconnect();
+                    }
+                });
+            }, { threshold: 0.1 });
+            childObserver.observe(container);
         });
-    });
+
+        // Lazy load images
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                    }
+                    observer.unobserve(img);
+                }
+            });
+        });
+        document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
+    }
 })();

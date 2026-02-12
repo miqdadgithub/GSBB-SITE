@@ -9,9 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Font imports -->
-    <link href="https://fonts.cdnfonts.com/css/waterlily" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/waterlily?display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- our stylesheet -->
@@ -19,6 +19,9 @@
 </head>
 
 <body>
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- ===== ORIGINAL HEADER (copied back, unchanged) ===== -->
     <header>
         <div class="container header-inner">
@@ -160,9 +163,15 @@
         </div>
     </div>
 
-    <main>
+    <main id="main-content">
         <!-- HERO -->
         <section class="hero" role="banner">
+            <picture class="hero-picture">
+                <source media="(max-width: 600px)" srcset="https://imgix.bustle.com/mic/hx6idm47zn2naklwjtfidoloeq25jmxek9nqfmqx0i8ipozxrqtuppnmx6vofd6d.jpg?w=600&h=400&fit=crop&crop=faces&auto=format&q=70">
+                <source media="(max-width: 1024px)" srcset="https://imgix.bustle.com/mic/hx6idm47zn2naklwjtfidoloeq25jmxek9nqfmqx0i8ipozxrqtuppnmx6vofd6d.jpg?w=900&h=500&fit=crop&crop=faces&auto=format&q=75">
+                <img src="https://imgix.bustle.com/mic/hx6idm47zn2naklwjtfidoloeq25jmxek9nqfmqx0i8ipozxrqtuppnmx6vofd6d.jpg?w=1400&h=700&fit=crop&crop=faces&auto=format&q=80" alt="Gaza students studying and learning together" loading="eager" class="hero-image">
+            </picture>
+            <div class="hero-overlay"></div>
             <div class="hero-inner container">
                 <h1 class="hero-title">Empowering Gaza students to continue their educational journey</h1>
                 <p class="hero-lead">We provide scholarships, housing, mentorship and safe pathways for students from Gaza to study abroad and rebuild their futures.</p>
@@ -200,53 +209,53 @@
 
                 <div class="donation-grid">
                     <!-- GoFundMe -->
-                    <div class="don-card don-gfm">
+                    <div class="don-card don-gfm" style="--don-accent:#0e8a52; --don-bg:#f6fff8;">
                         <div class="don-icon">
                             <i class="fas fa-hands-holding" aria-hidden="true"></i>
                         </div>
                         <h3>GoFundMe</h3>
                         <p class="don-text">Shareable, public campaign.</p>
                         <div class="don-body">
-                            <p class="don-small">Use our official GoFundMe to support Gaza students and spread the word.</p>
+                            <p class="don-small">Support our official campaign and help spread awareness widely.</p>
+                            <p class="don-impact">€25 — Textbooks for one month</p>
                         </div>
                         <div class="donate-button">
-                            <a class="btn btn-primary" href="https://gofund.me/834facd61" target="_blank" rel="noopener">
-                Donate on GoFundMe
-              </a>
+                            <a class="btn btn-primary" href="https://gofund.me/834facd61" target="_blank" rel="noopener">Donate on GoFundMe</a>
+                            <small class="don-trust">Secure • Tax receipts</small>
                         </div>
                     </div>
 
                     <!-- PayPal -->
-                    <div class="don-card don-paypal">
+                    <div class="don-card don-paypal" style="--don-accent:#0c5ea9; --don-bg:#f3f7fb;">
                         <div class="don-icon">
                             <i class="fab fa-paypal" aria-hidden="true"></i>
                         </div>
                         <h3>PayPal</h3>
                         <p class="don-text">Fast & secure.</p>
                         <div class="don-body">
-                            <p class="don-small">Perfect if you want to donate directly or monthly.</p>
+                            <p class="don-small">Donate once or set up monthly giving to sustain impact.</p>
+                            <p class="don-impact">€50 — Monthly mentorship support</p>
                         </div>
                         <div class="donate-button">
-                            <a class="btn btn-paypal" href="https://www.paypal.com/donate" target="_blank" rel="noopener">
-                                <i class="fab fa-paypal" aria-hidden="true"></i> Donate with PayPal
-                            </a>
+                            <a class="btn btn-primary" href="https://www.paypal.com/donate" target="_blank" rel="noopener">Donate with PayPal</a>
+                            <small class="don-trust">Secure processing</small>
                         </div>
                     </div>
 
                     <!-- Buy Me a Coffee -->
-                    <div class="don-card don-bmc">
+                    <div class="don-card don-bmc" style="--don-accent:#d4a900; --don-bg:#fff8e0;">
                         <div class="don-icon">
                             <i class="fas fa-mug-hot" aria-hidden="true"></i>
                         </div>
                         <h3>Buy Me a Coffee</h3>
                         <p class="don-text">Small acts, real impact.</p>
                         <div class="don-body">
-                            <p class="don-small">Help cover daily student needs so they can keep studying.</p>
+                            <p class="don-small">Every contribution helps cover daily student essentials & learning materials.</p>
+                            <p class="don-impact">£5 — Meal for a student</p>
                         </div>
                         <div class="donate-button">
-                            <a class="btn btn-bmc" href="https://buymeacoffee.com/yahya2" target="_blank" rel="noopener">
-                ☕ Buy a Coffee
-              </a>
+                            <a class="btn btn-primary" href="https://buymeacoffee.com/yahya2" target="_blank" rel="noopener">☕ Buy a Coffee</a>
+                            <small class="don-trust">Direct support</small>
                         </div>
                     </div>
                 </div>
@@ -262,42 +271,49 @@
                 </div>
                 <div class="projects">
                     <article class="project" data-project="student-evacuation">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=60" alt="Student Evacuation Program" loading="lazy">
-                        </div>
-                        <div class="meta">
-                            <h3>Student Evacuation Program</h3>
-                            <p class="project-desc">Helping Palestinian students secure fully funded university places abroad and navigate visa requirements amidst the crisis.</p>
-                            <div class="project-read-more">
-                                Read more <i class="fas fa-arrow-right"></i>
+                        <a class="project-link" href="/vlog/student-evacuation" aria-label="Open vlog: Student Evacuation Program">
+                            <div class="project-image">
+                                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=60" alt="Students preparing for evacuation program" loading="lazy">
                             </div>
-                        </div>
+                            <div class="meta">
+                                <h3>Student Evacuation Program</h3>
+                                <p class="project-desc">Secure funded university places and visa pathways for Palestinian students.</p>
+                                <div class="project-tags">#evacuation • #scholarships</div>
+                                <div class="project-read-more">Read more <i class="fas fa-arrow-right"></i></div>
+                            </div>
+                        </a>
                     </article>
 
                     <article class="project" data-project="educational-reconstruction">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1200&q=60" alt="Educational Reconstruction" loading="lazy">
-                        </div>
-                        <div class="meta">
-                            <h3>Educational Reconstruction</h3>
-                            <p class="project-desc">Rebuilding educational infrastructure in Gaza. We work with partners to restore learning spaces and resources.</p>
-                            <div class="project-read-more">
-                                Read more <i class="fas fa-arrow-right"></i>
+                        <a class="project-link" href="/vlog/educational-reconstruction" aria-label="Open vlog: Educational Reconstruction">
+                            <div class="project-image">
+                                <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1200&q=60" alt="Learning spaces and educational resources in Palestine" loading="lazy">
                             </div>
-                        </div>
+                            <div class="meta">
+                                <h3>Educational Reconstruction</h3>
+                                <p class="project-desc">Restoring learning spaces and resources across Gaza with community partners.</p>
+                                <div class="project-tags">#infrastructure • #learning</div>
+                                <div class="project-read-more">
+                                    Read more <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </a>
                     </article>
 
                     <article class="project" data-project="digital-rights-advocacy">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=60" alt="Digital Rights Advocacy" loading="lazy">
-                        </div>
-                        <div class="meta">
-                            <h3>Digital Rights Advocacy</h3>
-                            <p class="project-desc">Fighting for Palestinian students' and journalists' digital rights so their voices are heard.</p>
-                            <div class="project-read-more">
-                                Read more <i class="fas fa-arrow-right"></i>
+                        <a class="project-link" href="/vlog/digital-rights-advocacy" aria-label="Open vlog: Digital Rights Advocacy">
+                            <div class="project-image">
+                                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=60" alt="Digital rights advocacy for Palestinian journalists and students" loading="lazy">
                             </div>
-                        </div>
+                            <div class="meta">
+                                <h3>Digital Rights Advocacy</h3>
+                                <p class="project-desc">Protecting Palestinian student and journalist voices in the digital space.</p>
+                                <div class="project-tags">#digital-rights • #voice</div>
+                                <div class="project-read-more">
+                                    Read more <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </a>
                     </article>
                 </div>
             </div>
@@ -325,7 +341,7 @@
                     </div>
                 </div>
 
-                <p class="market-contact">Do you represent an organization interested in collaborating with us to support Gaza students? Contact us at <strong>info@gazastudents.org</strong></p>
+                <p class="market-contact">Do you represent an organization interested in collaborating with us to support Gaza students? Contact us at <strong>info@gsbb.org</strong></p>
             </div>
         </section>
 
@@ -431,7 +447,7 @@
     </footer>
 
     <!-- our script -->
-    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/script.js"></script>
 </body>
 
 </html>
