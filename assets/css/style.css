@@ -90,14 +90,16 @@ header {
     backdrop-filter: blur(6px);
     border-bottom: 1px solid rgba(16, 18, 20, 0.04);
     transition: all var(--duration) var(--ease-out);
+    min-height: 70px;
 }
 
 .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 0;
+    padding: 12px 0;
     position: relative;
+    min-height: 60px;
 }
 
 .logo {
@@ -214,6 +216,16 @@ nav a.cta:focus-visible {
     max-height: calc(100vh - 96px);
     transform: translateY(-20px);
     transition: transform var(--duration) var(--ease-out);
+    position: relative;
+}
+
+@media (max-width: 480px) {
+    .mobile-menu-panel {
+        margin: 40px 8px 8px;
+        max-height: calc(100vh - 80px);
+        max-width: none;
+        width: calc(100% - 16px);
+    }
 }
 
 .mobile-menu-backdrop.active .mobile-menu-panel {
@@ -293,6 +305,9 @@ nav a.cta:focus-visible {
     background: transparent;
     border: none;
     transition: background-color var(--duration) var(--ease-out);
+    margin-left: auto;
+    position: relative;
+    z-index: 70;
 }
 
 .hamburger:hover {
@@ -329,7 +344,7 @@ nav a.cta:focus-visible {
 /* ========== HERO ========== */
 
 .hero {
-    min-height: 55vh;
+    min-height: clamp(50vh, 80vh, 100vh);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -350,6 +365,14 @@ nav a.cta:focus-visible {
     z-index: 0;
 }
 
+/* Ensure hero image is responsive */
+@media (max-width: 600px) {
+    .hero-picture source[media="(max-width: 600px)"],
+    .hero-image {
+        object-position: center center;
+    }
+}
+
 .hero-overlay {
     position: absolute;
     inset: 0;
@@ -362,6 +385,8 @@ nav a.cta:focus-visible {
     padding: 24px;
     position: relative;
     z-index: 2;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 h1.hero-title {
@@ -398,10 +423,13 @@ p.hero-lead {
     padding: 12px 20px;
     border-radius: 999px;
     font-weight: 700;
+    font-size: clamp(0.9rem, 2vw, 1rem);
     text-decoration: none;
     transition: all var(--duration) var(--ease-out);
     position: relative;
     overflow: hidden;
+    min-height: 44px; /* Ensure good touch target */
+    box-sizing: border-box;
 }
 
 .btn:focus-visible {
@@ -590,6 +618,14 @@ main > section:nth-of-type(even) {
     margin-top: 32px;
 }
 
+@media (max-width: 600px) {
+    .donation-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 24px;
+    }
+}
+
 .don-card {
     --don-accent: var(--accent);
     --don-bg: var(--card-bg);
@@ -728,6 +764,14 @@ main > section:nth-of-type(even) {
     gap: 22px;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     margin-top: 18px;
+}
+
+@media (max-width: 600px) {
+    .projects {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 16px;
+    }
 }
 
 .project {
@@ -941,6 +985,16 @@ main > section:nth-of-type(even) {
     grid-template-columns: 1fr;
 }
 
+@media (min-width: 600px) {
+    .vol-qs {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px 20px;
+    }
+    .field.full-width {
+        grid-column: 1 / -1;
+    }
+}
+
 .field {
     display: flex;
     flex-direction: column;
@@ -1101,9 +1155,25 @@ footer {
 
 /* ========== RESPONSIVE ========== */
 
+@media (min-width: 1200px) {
+    .container {
+        padding: 0 24px;
+    }
+    .hero-inner {
+        max-width: 1100px;
+    }
+    .donation-grid,
+    .projects {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 1024px) {
     .hero {
         padding: 50px 0;
+    }
+    .container {
+        padding: 0 20px;
     }
 }
 
@@ -1116,37 +1186,71 @@ footer {
     }
     .logo {
         max-width: calc(100% - 60px);
-        transform: scale(0.8);
+        transform: scale(0.85);
         transform-origin: left center;
         margin-left: 16px;
     }
     .logo svg {
-        height: 50px;
+        height: 48px;
     }
     .projects {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
     .market-coming-soon {
         padding: 40px 24px;
+    }
+    .hero-inner {
+        padding: 20px;
+    }
+    .section-title {
+        margin-bottom: 24px;
     }
 }
 
 @media (max-width: 768px) {
     .donation-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
     .footer-content {
         flex-direction: column;
         text-align: center;
+        gap: 20px;
     }
     .vol-form {
-        padding: 24px;
+        padding: 24px 20px;
     }
     h1.hero-title {
-        font-size: clamp(1.4rem, 2vw, 2rem);
+        font-size: clamp(1.4rem, 6vw, 2rem);
+        margin-bottom: 12px;
     }
     .section-title h2 {
-        font-size: 1.4rem;
+        font-size: clamp(1.4rem, 5vw, 1.8rem);
+    }
+    .hero-lead {
+        font-size: clamp(1rem, 4vw, 1.15rem);
+        margin-bottom: 24px;
+    }
+    .hero-buttons {
+        gap: 12px;
+    }
+    .btn {
+        padding: 10px 18px;
+        font-size: 0.95rem;
+    }
+    .don-card {
+        padding: 20px;
+        min-height: 320px;
+    }
+    .project {
+        margin-bottom: 0;
+    }
+    .project .meta {
+        padding: 18px;
+    }
+    .market-coming-soon h3 {
+        font-size: clamp(1.2rem, 4vw, 1.4rem);
     }
 }
 
@@ -1155,7 +1259,7 @@ footer {
         padding: 16px;
     }
     section {
-        padding: 32px 0;
+        padding: 40px 0;
     }
     .container {
         padding: 0 16px;
@@ -1171,6 +1275,34 @@ footer {
     }
     .btn {
         width: 100%;
+        padding: 12px 16px;
+    }
+    .don-card .btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+    .vol-qs {
+        gap: 20px;
+    }
+    .field.full-width {
+        grid-column: 1;
+    }
+    .help-options-simple {
+        gap: 10px;
+    }
+    .checkbox-label {
+        padding: 6px;
+        font-size: 0.9rem;
+    }
+    .footer-inner {
+        gap: 20px;
+    }
+    .social-links-horizontal {
+        gap: 12px;
+    }
+    .social-links-horizontal a {
+        width: 42px;
+        height: 42px;
     }
 }
 
@@ -1185,25 +1317,50 @@ footer {
         font-size: 14px;
     }
     h1.hero-title {
-        font-size: 1.25rem;
+        font-size: clamp(1.25rem, 7vw, 1.6rem);
+        line-height: 1.2;
     }
     .section-title h2 {
-        font-size: 1.2rem;
+        font-size: clamp(1.2rem, 6vw, 1.4rem);
     }
     .hero-inner {
-        padding: 20px;
+        padding: 20px 16px;
     }
     section {
-        padding: 40px 0;
+        padding: 32px 0;
     }
     .market-coming-soon h3 {
-        font-size: 1.3rem;
+        font-size: clamp(1.1rem, 5vw, 1.3rem);
+    }
+    .market-coming-soon {
+        padding: 30px 20px;
+    }
+    .preview-actions {
+        padding: 20px;
     }
     .footer-description {
         max-width: none;
     }
     .don-card {
         min-height: 0;
+        padding: 14px;
+    }
+    .don-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+    .vol-form {
+        padding: 20px 16px;
+    }
+    .form-description {
+        font-size: 1rem;
+        margin-bottom: 24px;
+    }
+    .input,
+    .textarea {
+        padding: 12px 14px;
+        font-size: 16px; /* Prevent zoom on iOS */
     }
 }
 
